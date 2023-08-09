@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   jenkins:
-    container_name: jenkins
+    container_name: jenkins2
     image: jenkins/jenkins:lts
     networks:
       - cloudacademylabs
@@ -13,8 +13,8 @@ services:
       - socat
   socat:
     container_name: socat
-    image: socat-ca:latest
-    #image: alpine/socat:latest
+    #image: socat-ca:latest
+    image: alpine/socat:latest
     networks:
       - cloudacademylabs
     command: tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
@@ -24,8 +24,8 @@ services:
       - "2375"
   postgres:
     container_name: postgres
-    image: postgres-ca:latest
-    #image: postgres:9.6
+    #image: postgres-ca:latest
+    image: postgres:9.6
     networks:
       - cloudacademylabs
     environment:
@@ -37,9 +37,9 @@ services:
         soft: 32000
         hard: 40000
   sonarqube:
-    container_name: sonarqube
-    image: sonarqube-ca:latest
-    #image: sonarqube:7.1
+    container_name: sonarqube2
+    #image: sonarqube-ca:latest
+    image: sonarqube:latest
     ports:
       - "9000:9000"
       - "9092:9092"

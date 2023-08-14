@@ -2,7 +2,8 @@ version: "3.5"
 services:
   jenkins:
     container_name: jenkins2
-    image: jenkins/jenkins:lts
+    image: vinex22/jenkis-with-maven:latest
+
     networks:
       - cloudacademylabs
     ports:
